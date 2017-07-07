@@ -1,5 +1,5 @@
 # stego_http
-A PoC of hiding and transfering data inside http headers. Very low throughput - suitable for malware C&C communicaton.
+A PoC for hiding and transfering data inside http headers. Very low throughput - suitable for malware C&C communicaton.
 
 The client transforms a message into binary format and encodes it as white spaces inside the request headers. 1s are encoded as a double space and 0s as a single space.
 
@@ -7,7 +7,7 @@ The first space after the colon in the http headers (header: value) is not used 
 
 Very easy to stop. At it's currnet state the tool is ineffective if the traffic passes through a proxy or security appliance that normalizes the requests, because the space before \r\n will be omitted and there's going to be information loss.
 
-It could be made normalization resistant by not inserting a space at the end, but this will lower the throughput even more.
+I think it could be made normalization resistant by not inserting a space at the end, but this will lower the throughput even more. Also I'm not sure if normalization will replace double spaces in the middle of the header value with a single space.
 
 In the examples below I used every header that I could think of to maximize the hiding capacity.
 
@@ -48,3 +48,14 @@ accept-charset: utf-8, iso-8859-1;q=0.5, *;q=0.1
 
 
 ```
+
+To transfer the message "This is a very secret message!" 7 such requests are sent. (As I said it's very very low throughput)
+
+
+Some thoughts for future imporovements:
+- make the request generation random and don't use fixed headers and values. 
+- add an option to make it normalization resistant (if it's possible)
+- make the server return a legitimate page. Could also hide data in the page to increase capacity.
+- subsequent requests to use links from the returned page (make it as real http traffic as possible)
+- make use of POST requests
+- make the communication two-way -> server hides data in the responses
