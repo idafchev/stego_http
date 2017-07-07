@@ -1,5 +1,5 @@
 # stego_http
-A PoC for hiding and transfering data inside http headers. Very low throughput - suitable for malware C&C communicaton.
+A PoC for hiding and transfering data inside http headers. Very low throughput - suitable for malware C&C communicaton. My code isn't very good but it's good enough for PoC.
 
 The client transforms a message into binary format and encodes it as white spaces inside the request headers. 1s are encoded as a double space and 0s as a single space.
 
