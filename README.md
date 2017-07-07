@@ -5,7 +5,7 @@ The client transforms a message into binary format and encodes it as white space
 
 The first space after the colon in the http headers (header: value) is not used to hide data. In case of a double space it's visually very noticable. To retain the hiding capacity of the request a space(or double space) is inserted right before the end of the header (\r\n), which also makes it harder to notice.
 
-Very easy to stop. At it's currnet state the tool is ineffective if the traffic passes through a proxy or security appliance that normalizes the requests, because the space before \r\n will be omitted and there's going to be information loss.
+Very easy to stop. In it's currnet state the tool is ineffective if the traffic passes through a proxy or security appliance that normalizes the requests, because the space before \r\n will be omitted and there's going to be information loss.
 
 I think it could be made normalization resistant by not inserting a space at the end, but this will lower the throughput even more. Also I'm not sure if normalization will replace double spaces in the middle of the header value with a single space.
 
