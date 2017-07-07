@@ -42,7 +42,7 @@ def hide_in_line( line, binary ):
 	try:
 		int(binary,2)
 	except:
-		raise "NonBinary"
+		raise "NonBinary input Exception"
 
 	new_line = list(line)
 	space_index = line.find(' ')
