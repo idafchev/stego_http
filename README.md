@@ -59,3 +59,4 @@ Some thoughts for future imporovements:
 - subsequent requests to use links from the returned page (make it as real http traffic as possible)
 - make use of POST requests
 - make the communication two-way -> server hides data in the responses
+- add ssl/tls support
