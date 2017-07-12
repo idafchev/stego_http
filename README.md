@@ -60,3 +60,4 @@ Some thoughts for future imporovements:
 - make use of POST requests
 - make the communication two-way -> server hides data in the responses
 - add ssl/tls support
+- add compression for large messages
